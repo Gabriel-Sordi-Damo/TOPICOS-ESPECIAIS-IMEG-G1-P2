@@ -2,9 +2,9 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Home from './src/pages/Home';
-import Dados from './src/pages/Dados';
-import Login from './src/pages/Login';
+import Forecasts from './src/pages/Forecasts';
+import About from './src/pages/About';
+import Menu from './src/pages/Menu';
 
 
 const Stack = createNativeStackNavigator();
@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Login'
+      <Stack.Navigator initialRouteName='Menu'
         screenOptions={{
           headerTitleAlign: "center",
           headerStyle: {
@@ -25,38 +25,26 @@ function App() {
         }}
       >
 
-        {
-          /*
-            em todas as telas(pages) é injetado na props a função navigation()
-          */
-        }
-
-
 
         <Stack.Screen
-          name="Home"
-          component={Home}
+          name="Menu"
+          component={Menu}
           options={
-            {
-              title: 'Seja Bem-Vindo',
-            }
-          }
-        />
-        <Stack.Screen
-          name="Dados"
-          component={Dados}
-          options={
-            { title: "Dados do Amigo" }
-          }
-        />
+            { title: "Menu" }
+          } />
 
         <Stack.Screen
-          name="Login"
-          component={Login}
+          name="Forecasts"
+          component={Forecasts}
           options={
-            { title: "My Friends APP" }
-          }
-        />
+            { title: "Previsões" }
+          } />
+        <Stack.Screen
+          name="About"
+          component={About}
+          options={
+            { title: "Sobre" }
+          } />
 
       </Stack.Navigator>
     </NavigationContainer>
